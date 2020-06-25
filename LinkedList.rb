@@ -6,10 +6,12 @@ class LinkedList
 
     def append(value)
         list.push(value)
+        list.each_with_index { |node,index| node.next_node = list.at(index + 1)}
     end
 
     def prepend(value)
         list.unshift(value)
+        list.each_with_index { |node,index| node.next_node = list.at(index + 1)}
     end
 
     def size
@@ -30,6 +32,7 @@ class LinkedList
 
     def pop
         list.pop
+        list.each_with_index { |node,index| node.next_node = list.at(index + 1)}
     end
 
     def contains?(value)
@@ -46,9 +49,11 @@ class LinkedList
 
     def insert_at(value, index)
         list.insert(index, value)
+        list.each_with_index { |node,index| node.next_node = list.at(index + 1)}
     end
 
     def remove_at(index)
         list.delete_at(index)
+        list.each_with_index { |node,index| node.next_node = list.at(index + 1)}
     end
 end
